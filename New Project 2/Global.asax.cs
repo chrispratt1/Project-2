@@ -1,5 +1,7 @@
-﻿using System;
+﻿using New_Project_2.DAL;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -12,6 +14,9 @@ namespace New_Project_2
     {
         protected void Application_Start()
         {
+            //tell the Entity Framework which connection we will be using
+            Database.SetInitializer<NewProject2Context>(null);
+            
             AreaRegistration.RegisterAllAreas();
             FilterConfig.RegisterGlobalFilters(GlobalFilters.Filters);
             RouteConfig.RegisterRoutes(RouteTable.Routes);
